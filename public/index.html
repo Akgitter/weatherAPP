@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather APP</title>
+    <link href="style.css" rel="stylesheet" />
+    <script
+      defer
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeAIJdYbkfhVIb9muDSWrqhIHWkKf7_tA&libraries=places&callback=initmap"
+    ></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="icon-container">
+          <img
+            id="weather-icon"
+            weathericon
+            src="https://cdn.weatherapi.com/weather/64x64/day/113.png"
+            alt="Weather Icon"
+            width="100"
+            height="100"
+          />
+        </div>
+      </div>
+      <div class="content">
+        <div class="general-information">
+          <div class="status" data-status>Enter a location</div>
+          <div class="location" data-location>To find the Weather</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail">
+            <div class="title">Precipitation</div>
+            <div class="value" data-precipitation>TBD</div>
+          </div>
+          <div class="detail">
+            <div class="title">Temperature</div>
+            <div class="value" data-temperature>TBD</div>
+          </div>
+          <div class="detail">
+            <div class="title">Wind</div>
+            <div class="value" data-wind>TBD</div>
+          </div>
+        </div>
+        <div class="city-search-container">
+          <input
+            type="text"
+            class="city-search"
+            data-city-search
+            placeholder="Enter Location"
+          />
+        </div>
+      </div>
+    </div>
+    <a href="https://www.weatherapi.com/" class="weatherapplogo"
+      >Powered By WeatherAPI</a
+    >
+  </body>
+</html>

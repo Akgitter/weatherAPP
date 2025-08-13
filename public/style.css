@@ -1,0 +1,244 @@
+/* --- Google Font Import --- */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap");
+
+/* --- CSS Reset & Global Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --- General Body Styles --- */
+body {
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  color: #000000; /* Changed to pure black for max contrast */
+  /* Off-white background with a subtle grid pattern */
+  background-color: #f9f4ef;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.05) 1.5px,
+      transparent 1.5px
+    ),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px);
+  background-size: 25px 25px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* --- Main Weather Container --- */
+.container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 3px solid #000000; /* Bolder border */
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 10px 10px 0px #000000; /* Bolder shadow */
+  transition: all 0.3s ease;
+}
+
+/* --- Header and Icon --- */
+.header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-container {
+  width: 120px;
+  height: 120px;
+  background-color: #f3f4f6;
+  border: 3px solid #000;
+  border-radius: 50%; /* Makes the container a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 8px 8px 0px #a855f7; /* Purple shadow for pop */
+  margin-bottom: 1rem;
+}
+
+#weather-icon {
+  width: 90px;
+  height: 90px;
+  /* Slightly enhance the colors of the API-provided icon */
+  filter: contrast(1.1) saturate(1.1);
+}
+
+/* --- General Information (Status & Location) --- */
+.status {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+  color: #000000;
+}
+
+.location {
+  font-size: 1.125rem;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+/* --- Details Section (Precipitation, Temp, Wind) --- */
+.detail-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+.detail {
+  background-color: #f3f4f6;
+  border: 3px solid #000;
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
+}
+
+.detail .title {
+  color: #000;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.detail .value {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+/* --- Bolder, More Colorful Accents --- */
+.detail:nth-child(1) {
+  border-color: #ec4899;
+  box-shadow: 4px 4px 0px #ec4899;
+} /* Pink */
+.detail:nth-child(1) .value {
+  color: #ec4899;
+}
+
+.detail:nth-child(2) {
+  border-color: #a855f7;
+  box-shadow: 4px 4px 0px #a855f7;
+} /* Purple */
+.detail:nth-child(2) .value {
+  color: #a855f7;
+}
+
+.detail:nth-child(3) {
+  border-color: #3b82f6;
+  box-shadow: 4px 4px 0px #3b82f6;
+} /* Blue */
+.detail:nth-child(3) .value {
+  color: #3b82f6;
+}
+
+/* --- City Search Input --- */
+.city-search-container {
+  margin-top: 2rem;
+}
+
+.city-search {
+  width: 100%;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.city-search::placeholder {
+  color: #9ca3af;
+  font-weight: 700;
+}
+
+.city-search:focus {
+  box-shadow: 0 0 0 4px #000000, 0 0 0 8px #f59e0b; /* Bolder orange focus */
+}
+
+* --- Google Places Autocomplete Dropdown Styles --- */
+
+/* The main container for the dropdown suggestions */
+.pac-container {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 0.75rem;
+  box-shadow: 8px 8px 0px #000000;
+  font-family: "Manrope", sans-serif;
+  margin-top: 8px; /* Add some space below the search input */
+  padding: 0.5rem;
+  width: auto !important;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+/* A single suggestion item in the dropdown */
+.pac-item {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4b5563;
+  border-radius: 0.5rem; /* Rounded corners for each item */
+  cursor: pointer;
+  transition: all 0.225s ease-in-out;
+  border: 3px solid transparent; /* Placeholder for hover effect */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Styling for the main part of the suggestion text (e.g., "New York") */
+.pac-item-query {
+  font-weight: 600;
+  color: #d4770d;
+}
+
+/* Hover and selected states for a suggestion item */
+.pac-item:hover,
+.pac-item-selected {
+  background-color: #f3f4f6;
+  color: #ec4899;
+  border-color: #f59e0b; /* Purple border on hover/selection */
+}
+
+/* Hiding the default location pin icon */
+.pac-icon {
+  display: none;
+}
+
+/* Styling for the "Powered by Google" logo at the bottom */
+.hdpi .pac-logo:after {
+  background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png);
+  background-size: 120px 14px;
+  height: 14px;
+  width: 120px;
+  margin: 5px;
+}
+
+/* --- Footer Link --- */
+.weatherapplogo {
+  margin-top: 2.5rem;
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  transition: color 0.3s ease;
+  background: white;
+  padding: 0.5rem 1rem;
+  border: 3px solid black;
+  border-radius: 0.75rem;
+  box-shadow: 6px 6px 0px #000;
+}
+
+.weatherapplogo:hover {
+  color: #a855f7;
+}
